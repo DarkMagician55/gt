@@ -5,28 +5,7 @@ import (
 	"bytes"
 	"crypto/cipher"
 	"crypto/aes"
-	"encoding/base64"
-	"fmt"
 )
-
-func main() {
-	testAes()
-}
-
-func testAes() {
-	// AES-128。key长度：16, 24, 32 bytes 对应 AES-128, AES-192, AES-256
-	key := []byte("sfe023f_9fd&fwfl")
-	result, err := AesEncrypt([]byte("polaris@studygolang"), key)
-	if err != nil {
-		panic(err)
-	}
-	fmt.Println(base64.StdEncoding.EncodeToString(result))
-	origData, err := AesDecrypt(result, key)
-	if err != nil {
-		panic(err)
-	}
-	fmt.Println(string(origData))
-}
 
 func AesEncrypt(origData, key []byte) ([]byte, error) {
 	block, err := aes.NewCipher(key)
