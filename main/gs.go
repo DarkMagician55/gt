@@ -14,7 +14,7 @@ var pwd        = flag.String("p", "", "Use -c <pwd>")
 func main() {
 
 	flag.Parse()
-	if flag.NArg() < 1{
+	if flag.NArg() < 1 && !*createPwd{
 		return
 	}
 
@@ -23,9 +23,11 @@ func main() {
 			pwdStr , ok := sshtool.CreatePwdStr(*u, *pwd)
 			if ok {
 				fmt.Println(pwdStr)
+				return
 			}
 		}
 		fmt.Println("Use -c -u user -p pwd")
+		return
 	}
 
 	host := flag.Arg(0)
