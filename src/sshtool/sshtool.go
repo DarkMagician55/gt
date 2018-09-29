@@ -17,4 +17,11 @@ func CreatePwdStr(user, pwd string) (string, bool) {
 		return "", false
 	}
 	return hex.EncodeToString(b), true
+	//for test//for test//for test
+	//for test
+	//for test
+	//for test
+	//for test
+	//for test
+	//for test
 }
